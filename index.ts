@@ -1,7 +1,8 @@
 function findBcomponent(msg : string[]): number {
-    for(let i = 0; i <= msg.length; i++){
 
-        if (msg[i].includes("B")) {
+    for(let i = 0; i < msg.length; i++){
+
+        if (msg[i].indexOf('B') !== -1) {
             return i
         }
     }
@@ -24,18 +25,17 @@ function fizzBuzz(): void {
         if (multipleOfFive) {message.push("Buzz")}
         if (multipleOfSeven) (message.push("Bang"))
          
-        if (multipleOfSeventeen){
-            message = message.reverse()
-        }
-    
         if (multipleOfEleven) {message = ["Bong"]}
         
         if (multipleOfThirtheen) {
              
-            const posB : number = findBcomponent(message)
-            posB === -1 ? message.push("Fezz") : message.splice(posB, 0, "Fezz")
+            const positionOfBWord : number = findBcomponent(message)
+            positionOfBWord === -1 ? message.push("Fezz") : message.splice(positionOfBWord, 0, "Fezz")
         }
-        
+
+        if (multipleOfSeventeen){
+            message = message.reverse()
+        }
        
         const stringMessage: string = message.join("")   
         stringMessage !== "" ? console.log(stringMessage) : null;
