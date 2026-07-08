@@ -11,9 +11,11 @@
     "jsx": "react-jsx",                  
     "outDir": "./dist",                  
     "baseUrl": ".",                      
+    "moduleResolution": "node",
     "paths": {                           
       "@components/*": ["src/components/*"]
-    }
+    },
+    "types": ["node"]
   },
   "include": ["src/**/*"],               
   "exclude": ["node_modules", "dist"]    
