@@ -92,7 +92,7 @@ function fizzBuzz(maxRepetition: number, modifiers: FizzBuzzModifiers): void {
 }
 
 const args = process.argv.slice(2);
-console.log(args);
+
 
 const rl = readline.createInterface({
     input: process.stdin,
