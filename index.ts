@@ -1,6 +1,6 @@
 function fizzBuzz(): void {
-    
-    for (let i = 1; i <=100; i++){
+
+    for (let i : number = 1; i <=100; i++){
         if (i % 3 === 0) {
           console.log("Fizz");
         }
