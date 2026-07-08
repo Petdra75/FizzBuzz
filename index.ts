@@ -2,7 +2,7 @@ import process from 'process';
 import * as readline from 'readline';
 
 
-class FizzBuzzModifiers {
+export class FizzBuzzModifiers {
     private _fizz: boolean;
     private _buzz: boolean;
     private _bang: boolean;
@@ -55,7 +55,9 @@ function findBcomponent(msg : string[]): number {
     return -1
 }
 
-function fizzBuzz(maxRepetition: number, modifiers: FizzBuzzModifiers): void {
+export function fizzBuzz(maxRepetition: number, modifiers: FizzBuzzModifiers): String[] {
+
+    const output:String[] = [];
     for (let i : number = 1; i <=maxRepetition; i++){
         const multipleOfThree : boolean = (modifiers.fizz && i % 3 === 0)
         const multipleOfFive : boolean = (modifiers.buzz && i % 5 === 0)
@@ -82,13 +84,16 @@ function fizzBuzz(maxRepetition: number, modifiers: FizzBuzzModifiers): void {
             message.reverse()
         }
        
-        const stringMessage: string = message.join("")   
+        const stringMessage: string = message.join("")  
         stringMessage !== "" ? console.log(stringMessage) : null;
 
-        if (numberMatched) {continue}
+        if (numberMatched) {output.push(stringMessage); continue}
 
         console.log(i)
+        output.push(i.toString());
+        
     }
+    return output;
 }
 
 const args = process.argv.slice(2);
@@ -105,7 +110,7 @@ rl.question("Enter a number for FizzBuzz simulation: ", (input: string)=> {
   
     console.log(`Starting FizzBuzz until ${input} iteration`)
     const modifiers : FizzBuzzModifiers = getModifiersFromArgs(args)
-    fizzBuzz(iterations, modifiers);
+    const out:String[] = fizzBuzz(iterations, modifiers);
    
     rl.close();
 })
