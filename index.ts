@@ -85,9 +85,9 @@ function fizzBuzz(maxRepetition: number, modifiers: FizzBuzzModifiers): void {
         const stringMessage: string = message.join("")   
         stringMessage !== "" ? console.log(stringMessage) : null;
 
-        if (numberMatched) {continue}
-
-        console.log(i)
+        if (!numberMatched) {
+            console.log(i)
+        }
     }
 }
 
